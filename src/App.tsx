@@ -10,12 +10,8 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-// import ScrollToTop from "@/components/ScrollToTop";
 import ScrollRestoration from "@/components/ScrollRestoration";
-
-
-
-
+import Chatbot from "@/components/Chatbot"; // 👈 ADD THIS
 
 const queryClient = new QueryClient();
 
@@ -26,17 +22,16 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-        {/* <ScrollToTop /> */}
-        <ScrollRestoration />
+          <ScrollRestoration />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Chatbot /> {/* 👈 ADD THIS — outside Routes, inside BrowserRouter */}
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
